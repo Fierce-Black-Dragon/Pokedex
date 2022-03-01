@@ -1,5 +1,6 @@
 import "./App.css";
 import useFetch from "use-http";
+import { NavBar } from "./component/NavBar";
 
 function App() {
   const {
@@ -10,6 +11,7 @@ function App() {
   console.log(data.results);
   return (
     <div>
+      <NavBar />
       {error && "Error!"}
       {loading && "Loading..."}
       {data?.results?.map((pokemon) => (
