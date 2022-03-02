@@ -9,7 +9,9 @@ function App() {
   return (
     <div>
       <NavBar />
-      <PokeScreen />
+      <div className="justify-center  ">
+        <PokeScreen />
+      </div>
     </div>
   );
 }
