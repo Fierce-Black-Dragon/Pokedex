@@ -1,22 +1,15 @@
 import "./App.css";
 import useFetch from "use-http";
 import { NavBar } from "./component/NavBar";
+import { PokeScreen } from "./component/PokeScreen";
 
 function App() {
-  const {
-    loading,
-    error,
-    data = [],
-  } = useFetch("https://pokeapi.co/api/v2/pokemon?limit=100", []);
-  console.log(data.results);
+  //   https://pokeapi.co/api/v2/pokemon?limit=10&offset=200
+
   return (
     <div>
       <NavBar />
-      {error && "Error!"}
-      {loading && "Loading..."}
-      {data?.results?.map((pokemon) => (
-        <div key={pokemon.url}>{pokemon.name}</div>
-      ))}
+      <PokeScreen />
     </div>
   );
 }
