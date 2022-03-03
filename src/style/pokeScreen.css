@@ -1,0 +1,73 @@
+.pokeScreen {
+  height: max-content;
+  width: 17rem;
+  margin: 1% auto;
+  background-color: rgb(226 232 240);
+
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+
+  border-right: 10px solid rgb(113 113 122);
+  border-left: 10px solid rgb(113 113 122);
+}
+
+.pokeScreen__display {
+  background-color: rgb(165 243 252);
+  align-items: center;
+  display: grid;
+  align-items: center;
+
+  justify-content: space-between;
+  grid-template-columns: 1fr;
+}
+
+.pokeScreen__display img {
+  height: 5rem;
+  width: 5rem;
+  margin: 0 auto;
+  align-items: center;
+  height: max-content;
+  width: max-content;
+}
+
+.pokeScreen__display .pokeScreen__info {
+  border-top: 10px solid transparent;
+}
+@media only screen and (min-width: 700px) {
+  .pokeScreen {
+    height: max-content;
+    width: 100%;
+    background-color: rgb(226 232 240);
+
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+
+    border-right: 10px solid rgb(113 113 122);
+    border-left: 10px solid rgb(113 113 122);
+  }
+
+  .pokeScreen__display {
+    background-color: rgb(165 243 252);
+    align-items: center;
+    display: grid;
+    justify-content: space-between;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .pokeScreen__display img {
+    align-items: center;
+    height: max-content;
+    width: max-content;
+  }
+}
+/* 
+
+
+
+
+
+
+
+
+
+*/

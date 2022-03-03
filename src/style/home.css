@@ -1,0 +1,12 @@
+.backScreen {
+  justify-content: center;
+  align-items: center;
+  margin: 2% auto;
+}
+@media only screen and (min-width: 700px) {
+  .backScreen {
+    justify-content: center;
+    align-items: center;
+    margin: 2% auto;
+  }
+}
