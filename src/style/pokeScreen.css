@@ -1,6 +1,6 @@
 .pokeScreen {
   height: max-content;
-  width: 17rem;
+  width: max-content;
   margin: 1% auto;
   background-color: rgb(226 232 240);
 
@@ -9,6 +9,10 @@
 
   border-right: 10px solid rgb(113 113 122);
   border-left: 10px solid rgb(113 113 122);
+}
+img {
+  height: 5rem;
+  width: 5rem;
 }
 
 .pokeScreen__display {
@@ -22,8 +26,9 @@
 }
 
 .pokeScreen__display img {
-  height: 5rem;
-  width: 5rem;
+  height: 50%;
+  width: 50%;
+  object-fit: contain;
   margin: 0 auto;
   align-items: center;
   height: max-content;

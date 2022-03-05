@@ -32,7 +32,7 @@ export const PokeSearch = () => {
         });
     }
   };
-  console.log(pokemonD);
+
   return (
     <div>
       {" "}

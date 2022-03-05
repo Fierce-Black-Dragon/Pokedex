@@ -11,6 +11,8 @@ export const PokeScreen = () => {
           <img
             src={pokemonD?.sprites?.other?.dream_world?.front_default}
             alt="pokemon"
+            height="100"
+            width="100"
           />
         ) : (
           <p className="text-orange-500"> Loading... </p>

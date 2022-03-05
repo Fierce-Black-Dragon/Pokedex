@@ -24,7 +24,6 @@ export const Home = () => {
     axios
       .get(urls)
       .then((response) => {
-        console.log(response);
         setLoading(false);
         setPokemonSD(response.data.results);
         setNext(response.data.next);
@@ -42,7 +41,6 @@ export const Home = () => {
     axios
       .get(currentURl)
       .then((response) => {
-        console.log(response);
         setLoading(false);
         setPokemonSD(response.data.results);
         setNext(response.data.next);
