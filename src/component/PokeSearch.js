@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 import * as axios from "axios";
 import "../style/pokeSearch.css";
-export const PokeSearch = ({ setPokemonD, loading, setLoading, setError }) => {
+import { useContext } from "react";
+import PokemonContext from "../context/PokemonContext";
+export const PokeSearch = () => {
   const [PokemonName, setPokemonName] = useState("");
-
+  const { setPokemonD, pokemonD, loading, setLoading, setError } =
+    useContext(PokemonContext);
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!PokemonName) {
@@ -29,6 +32,7 @@ export const PokeSearch = ({ setPokemonD, loading, setLoading, setError }) => {
         });
     }
   };
+  console.log(pokemonD);
   return (
     <div>
       {" "}

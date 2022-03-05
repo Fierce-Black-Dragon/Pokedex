@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { PokeList } from "../component/PokeList";
 import { PokeScreen } from "../component/PokeScreen";
 import { PokeSearch } from "../component/PokeSearch";
+import PokemonContext from "../context/PokemonContext";
 import "../style/home.css";
 export const Home = () => {
   const [pokemonD, setPokemonD] = useState({});
@@ -56,39 +57,45 @@ export const Home = () => {
       });
   }, [currentURl]);
   return (
-    <div className=" backScreen   ">
-      <PokeSearch
-        setPokemonD={setPokemonD}
-        setError={setError}
-        loading={loading}
-        setLoading={setLoading}
-      />
-
-      {pokemonD?.name ? (
-        <PokeScreen pokemonD={pokemonD} loading={loading} error={error} />
-      ) : (
-        ""
-      )}
-
-      <PokeList pokemons={pokemonSD} />
-      <div>
-        <button
-          onClick={() => {
-            handleClick(previous);
-          }}
-        >
-          {" "}
-          Previous{" "}
-        </button>
-        <button
-          onClick={() => {
-            handleClick(next);
-          }}
-        >
-          {" "}
-          Next{" "}
-        </button>
+    <PokemonContext.Provider
+      value={{
+        setPokemonD,
+        setError,
+        setLoading,
+        loading,
+        pokemonSD,
+        setPokemonSD,
+        pokemonD,
+      }}
+    >
+      <div className=" backScreen   ">
+        <PokeSearch />
+        {pokemonD?.name ? <PokeScreen /> : ""}
+        <PokeList pokemons={pokemonSD} setPokemonD={setPokemonD} />;
+        <div className="btn">
+          {previous ? (
+            <button
+              onClick={() => {
+                handleClick(previous);
+              }}
+            >
+              {" "}
+              Previous{" "}
+            </button>
+          ) : (
+            ""
+          )}
+          <button
+            className=""
+            onClick={() => {
+              handleClick(next);
+            }}
+          >
+            {" "}
+            Next{" "}
+          </button>
+        </div>
       </div>
-    </div>
+    </PokemonContext.Provider>
   );
 };

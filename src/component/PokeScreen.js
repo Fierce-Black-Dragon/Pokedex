@@ -1,6 +1,9 @@
 import "../style/pokeScreen.css";
 
-export const PokeScreen = ({ loading, pokemonD, error }) => {
+import PokemonContext from "../context/PokemonContext";
+import { useContext } from "react";
+export const PokeScreen = () => {
+  const { loading, pokemonD, error } = useContext(PokemonContext);
   return (
     <div className=" pokeScreen">
       <div className=" pokeScreen__display">
