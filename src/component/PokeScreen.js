@@ -3,7 +3,7 @@ import "../style/pokeScreen.css";
 import PokemonContext from "../context/PokemonContext";
 import { useContext } from "react";
 export const PokeScreen = () => {
-  const { loading, pokemonD, error } = useContext(PokemonContext);
+  const { loading, pokemonD } = useContext(PokemonContext);
   return (
     <div className=" pokeScreen">
       <div className=" pokeScreen__display">
@@ -11,8 +11,6 @@ export const PokeScreen = () => {
           <img
             src={pokemonD?.sprites?.other?.dream_world?.front_default}
             alt="pokemon"
-            height="100"
-            width="100"
           />
         ) : (
           <p className="text-orange-500"> Loading... </p>

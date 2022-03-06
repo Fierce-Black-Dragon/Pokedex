@@ -2,7 +2,7 @@ import React from "react";
 
 export const NavBar = () => {
   return (
-    <div className="bg-red-600 w-screen" style={{ width: "100%" }}>
+    <div className="bg-red-600 w-screen">
       <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
         <div className="relative flex items-center justify-start h-16">
           <div className=" h-8 w-8 rounded-full bg-blue-600 border-solid border-4 border-blue-100  md: h-12 w-12"></div>

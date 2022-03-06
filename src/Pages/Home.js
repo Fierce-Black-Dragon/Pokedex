@@ -15,9 +15,9 @@ export const Home = () => {
   });
   const [next, setNext] = useState("");
   const [previous, setPrevious] = useState("");
-  const [currentURl, setCurrentURl] = useState(
-    " https://pokeapi.co/api/v2/pokemon?limit=10"
-  );
+  const currentURl = " https://pokeapi.co/api/v2/pokemon?limit=10";
+
+  //cancelToken
   // const []
 
   const handleClick = (urls) => {
@@ -55,6 +55,7 @@ export const Home = () => {
       });
   }, [currentURl]);
   return (
+    // creating provider for context
     <PokemonContext.Provider
       value={{
         setPokemonD,
@@ -67,10 +68,25 @@ export const Home = () => {
       }}
     >
       <div className=" backScreen   ">
-        <PokeSearch />
-        {pokemonD?.name ? <PokeScreen /> : ""}
-        <PokeList pokemons={pokemonSD} setPokemonD={setPokemonD} />;
-        <div className="btn">
+        <div className=" m-auto justify-center">
+          <PokeSearch />
+        </div>
+
+        {pokemonD?.name ? (
+          <>
+            <div className="m-auto text-center  justify-center  text-slate-200">
+              <strong> Pokemon Info</strong>
+            </div>
+            <PokeScreen />
+          </>
+        ) : (
+          ""
+        )}
+        <div className="m-auto text-center justify-center  text-indigo-900 ">
+          <strong>All Pokemons</strong>
+        </div>
+        <PokeList />
+        <div className="btn m-auto">
           {previous ? (
             <button
               onClick={() => {

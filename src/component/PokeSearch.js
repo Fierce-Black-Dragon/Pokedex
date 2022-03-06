@@ -7,6 +7,7 @@ export const PokeSearch = () => {
   const [PokemonName, setPokemonName] = useState("");
   const { setPokemonD, pokemonD, loading, setLoading, setError } =
     useContext(PokemonContext);
+  let cancelToken;
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!PokemonName) {
@@ -14,23 +15,29 @@ export const PokeSearch = () => {
       setLoading(false);
     }
 
-    if (PokemonName) {
-      setLoading(true);
-      axios
-        .get(` https://pokeapi.co/api/v2/pokemon/${PokemonName}`)
-        .then((results) => {
-          setLoading(false);
-          setPokemonD(results.data);
-        })
-        .catch((err) => {
-          setError({
-            fail: true,
-            message: err.message,
-          });
-          setLoading(false);
-          setPokemonD(null);
-        });
+    if (typeof cancelToken != typeof undefined) {
+      cancelToken.cancel("canceling Previous req");
     }
+    cancelToken = axios.CancelToken.source();
+
+    setLoading(true);
+    // making api call
+    axios
+      .get(` https://pokeapi.co/api/v2/pokemon/${PokemonName}`, {
+        cancelToken: cancelToken.token,
+      })
+      .then((results) => {
+        setLoading(false);
+        setPokemonD(results.data);
+      })
+      .catch((err) => {
+        setError({
+          fail: true,
+          message: err.message,
+        });
+        setLoading(false);
+        setPokemonD(null);
+      });
   };
 
   return (
